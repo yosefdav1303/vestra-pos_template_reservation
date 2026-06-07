@@ -1,0 +1,16 @@
+:root {
+  --bg: #FAFAFA; --card: #FFFFFF; --ink: #09090B; --ink2: #52525B; --ink3: #A1A1AA;
+  --line: #E4E4E7; --line2: #F4F4F5; --accent: #18181B;
+  --amber-bg:#FEF3C7; --amber:#B45309; --green-bg:#DCFCE7; --green:#15803D;
+  --red-bg:#FEE2E2; --red:#B91C1C; --blue-bg:#DBEAFE; --blue:#1D4ED8; --zinc-bg:#F4F4F5;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); }
+body { font-family: 'Geist', system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 8px; border: 3px solid var(--bg); }
+button { font-family: inherit; }
+input { font-family: inherit; }
+@keyframes vpulse { 0%,100%{ opacity:1 } 50%{ opacity:0.35 } }
+@keyframes vslide { from { transform: translateX(20px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+@keyframes vfade { from { opacity: 0 } to { opacity: 1 } }
