@@ -1,8 +1,8 @@
 import React from 'react';
 import {
   VESTRA_THEMES, VESTRA_ACCENTS, VESTRA_CAFES,
-  VESTRA_TIME_SLOTS, cafe.spaceTypes, VESTRA_REQUEST_TAGS,
-  cafe.menu, VESTRA_DP, VESTRA_PAYMENT_METHODS, VESTRA_BANK_ACCOUNTS,
+  VESTRA_TIME_SLOTS, VESTRA_REQUEST_TAGS, VESTRA_WA,
+  VESTRA_DP, VESTRA_PAYMENT_METHODS, VESTRA_BANK_ACCOUNTS,
   VESTRA_MONTHS_ID, VESTRA_DAYS_ID, VESTRA_DAYS_FULL_ID,
   vestraFmtDate, vestraFmtDateShort, vestraFmtRp, vestraComputeBill, Icon,
 } from './data.jsx';
@@ -1013,7 +1013,7 @@ function GuestScreen({ t, accent, booking, setBooking, onBack, onNext, cafe }) {
         <Eyebrow color={t.ink3} style={{ marginTop: 18 }}>Langkah 4 dari 7</Eyebrow>
         <Display size={30} style={{ marginTop: 6 }}>Data tamu <span style={{ color: accent.hex }}>utama.</span></Display>
         <p style={{ margin: '8px 0 0 0', fontSize: 13, color: t.ink2, fontFamily: 'Geist, sans-serif', lineHeight: 1.55 }}>
-          Restoran akan menghubungi nomor ini untuk konfirmasi 1 jam sebelum reservasi.
+          {cafe.name} akan menghubungi nomor ini untuk konfirmasi 1 jam sebelum reservasi.
         </p>
 
         <Stack gap={16} style={{ marginTop: 22 }}>
@@ -1030,7 +1030,7 @@ function GuestScreen({ t, accent, booking, setBooking, onBack, onNext, cafe }) {
           <Eyebrow color={t.ink3} style={{ marginBottom: 10 }}>Ringkasan sementara</Eyebrow>
           <Stack gap={8}>
             {[
-            { k: 'Kedai', v: cafe.name },
+            { k: 'Tempat', v: cafe.name },
             { k: 'Tanggal', v: vestraFmtDate(booking.date) },
             { k: 'Waktu', v: booking.time },
             { k: cafe.showPax ? (cafe.guestNoun.charAt(0).toUpperCase() + cafe.guestNoun.slice(1)) : 'Pilihan', v: `${cafe.showPax ? booking.pax + ' ' + cafe.guestNoun + ' · ' : ''}${cafe.spaceTypes.find((x) => x.id === booking.tableType)?.label || '—'}` }].
@@ -1496,7 +1496,7 @@ function UploadProofScreen({ t, accent, booking, setBooking, onBack, onSubmit, c
                   </Row>
                   <QRPlaceholder size={180} color="#1F1612" bg="#FFFFFF" />
                   <Stack gap={2} style={{ alignItems: 'center' }}>
-                    <span style={{ fontFamily: 'Geist, sans-serif', fontSize: 12, fontWeight: 600, color: '#1F1612' }}>KOPI VESTRA</span>
+                    <span style={{ fontFamily: 'Geist, sans-serif', fontSize: 12, fontWeight: 600, color: '#1F1612' }}>{cafe.name.toUpperCase()}</span>
                     <span style={{ fontFamily: 'Geist, sans-serif', fontSize: 10, color: '#666' }}>NMID: ID2026081234567</span>
                   </Stack>
                 </Stack>
@@ -1720,7 +1720,7 @@ function ConfirmScreen({ t, accent, booking, cafe, onDone }) {
           Sampai jumpa,<br /><span style={{ color: accent.hex }}>{booking.name.split(' ')[0] || 'tamu'}.</span>
         </Display>
         <p style={{ textAlign: 'center', margin: '10px 0 0 0', fontSize: 14, color: t.ink2, fontFamily: 'Geist, sans-serif', lineHeight: 1.5 }}>
-          Meja kamu sudah aman di {cafe.name}. Detail e-receipt dikirim via WhatsApp.
+          Reservasi kamu sudah aman di {cafe.name}. Detail e-receipt dikirim via WhatsApp.
         </p>
 
         {/* Ticket card */}
@@ -1756,7 +1756,7 @@ function ConfirmScreen({ t, accent, booking, cafe, onDone }) {
             <Stack gap={12}>
               <Row justify="space-between" align="flex-start">
                 <Stack gap={4}>
-                  <Eyebrow color={t.ink3}>Kedai</Eyebrow>
+                  <Eyebrow color={t.ink3}>Tempat</Eyebrow>
                   <span style={{ fontFamily: 'Geist, sans-serif', fontSize: 15, fontWeight: 600, color: t.ink, letterSpacing: '-0.01em' }}>{cafe.name}</span>
                   <span style={{ fontSize: 12, color: t.ink3, fontFamily: 'Geist, sans-serif' }}>{cafe.area}</span>
                 </Stack>
